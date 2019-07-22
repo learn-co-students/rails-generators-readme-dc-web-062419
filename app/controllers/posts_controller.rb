@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(params.require(:post))
+    @post.update(params.require(:post).permit(:title, :category_id, :published_status, :description))
     redirect_to post_path(@post)
   end
 
